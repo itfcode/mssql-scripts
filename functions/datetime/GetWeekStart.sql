@@ -16,7 +16,7 @@ CREATE FUNCTION [dbo].[GetWeekStart](@inputDate DATETIME2)
 RETURNS DATETIME2
 AS
 BEGIN
-	RETURN dbo.GetWeekStartAt(@inputDate, 0)
+	RETURN [dbo].[GetWeekStartAt](@inputDate, 0)
 END
 GO
 
@@ -35,7 +35,7 @@ CREATE FUNCTION [dbo].[GetWeekStartAt](@inputDate DATETIME2, @numberOfWeeks INT)
 RETURNS DATETIME2
 AS
 BEGIN
-	RETURN dbo.GetDayStart(DATEADD(DAY, -((DATEPART(WEEKDAY, @inputDate) + @@DATEFIRST - 2) % 7 - (@numberOfWeeks * 7)), @inputDate))
+	RETURN [dbo].[GetDayStart](DATEADD(DAY, -((DATEPART(WEEKDAY, @inputDate) + @@DATEFIRST - 2) % 7 - (@numberOfWeeks * 7)), @inputDate))
 END
 GO
 
@@ -52,7 +52,7 @@ CREATE FUNCTION [dbo].[GetWeekStartNext](@inputDate DATETIME2)
 RETURNS DATETIME2
 AS
 BEGIN
-	RETURN dbo.GetWeekStartAt(@inputDate, 1)
+	RETURN [dbo].[GetWeekStartAt](@inputDate, 1)
 END
 GO
 
@@ -69,6 +69,6 @@ CREATE FUNCTION [dbo].[GetWeekStartPrev](@inputDate DATETIME2)
 RETURNS DATETIME2
 AS
 BEGIN
-	RETURN dbo.GetWeekStartAt(@inputDate, -1)
+	RETURN [dbo].[GetWeekStartAt](@inputDate, -1)
 END
 GO

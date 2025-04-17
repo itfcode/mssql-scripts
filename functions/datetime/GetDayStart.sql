@@ -15,7 +15,7 @@ CREATE FUNCTION [dbo].[GetDayStart](@inputDateTime DATETIME2)
 RETURNS DATETIME2
 AS
 BEGIN
-	RETURN dbo.GetDayStartAt(@inputDateTime, 0)
+	RETURN [dbo].[GetDayStartAt](@inputDateTime, 0)
 END
 GO
 
@@ -49,7 +49,7 @@ CREATE FUNCTION [dbo].[GetDayStartNext](@inputDateTime DATETIME2)
 RETURNS DATETIME2
 AS
 BEGIN
-	RETURN dbo.GetDayStartAt(@inputDateTime, 1)
+	RETURN [dbo].[GetDayStartAt](@inputDateTime, 1)
 END
 GO
 
@@ -65,6 +65,6 @@ CREATE FUNCTION [dbo].[GetDayStartPrev](@inputDateTime DATETIME2)
 RETURNS DATETIME2
 AS
 BEGIN
-	RETURN dbo.GetDayStartAt(@inputDateTime, -1)
+	RETURN [dbo].[GetDayStartAt](@inputDateTime, -1)
 END
 GO

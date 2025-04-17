@@ -16,7 +16,7 @@ CREATE FUNCTION [dbo].[GetDayEnd](@inputDate DATE)
 RETURNS DATETIME2
 AS
 BEGIN
-	RETURN dbo.GetDayEndAt(@inputDate, 0)
+	RETURN [dbo].[GetDayEndAt](@inputDate, 0)
 END
 GO
 
@@ -52,7 +52,7 @@ CREATE FUNCTION [dbo].[GetDayEndNext](@inputDate DATE)
 RETURNS DATETIME2
 AS
 BEGIN
-	RETURN dbo.GetDayEndAt(@inputDate, 1)
+	RETURN [dbo].[GetDayEndAt](@inputDate, 1)
 END
 GO
 
@@ -69,6 +69,6 @@ CREATE FUNCTION [dbo].[GetDayEndPrev](@inputDate DATE)
 RETURNS DATETIME2
 AS
 BEGIN
-	RETURN dbo.GetDayEndAt(@inputDate, -1)
+	RETURN [dbo].[GetDayEndAt](@inputDate, -1)
 END
 GO

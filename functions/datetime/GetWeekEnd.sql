@@ -16,7 +16,7 @@ CREATE FUNCTION [dbo].[GetWeekEnd](@inputDate DATETIME2)
 RETURNS DATETIME2
 AS
 BEGIN
-	RETURN dbo.GetWeekEndAt(@inputDate, 0)
+	RETURN [dbo].[GetWeekEndAt](@inputDate, 0)
 END
 GO
 
@@ -35,7 +35,7 @@ CREATE FUNCTION [dbo].[GetWeekEndAt](@inputDate DATETIME2, @numberOfWeeks INT)
 RETURNS DATETIME2
 AS
 BEGIN
-	RETURN dbo.GetDayEndPrev(dbo.GetWeekStartAt(@inputDate, @numberOfWeeks + 1))
+	RETURN [dbo].[GetDayEndPrev]([dbo].[GetWeekStartAt](@inputDate, @numberOfWeeks + 1))
 END
 GO
 
@@ -52,7 +52,7 @@ CREATE FUNCTION [dbo].[GetWeekEndNext](@inputDate DATETIME2)
 RETURNS DATETIME2
 AS
 BEGIN
-	RETURN dbo.GetWeekEndAt(@inputDate, 1)
+	RETURN [dbo].[GetWeekEndAt](@inputDate, 1)
 END
 GO
 
@@ -69,6 +69,6 @@ CREATE FUNCTION [dbo].[GetWeekEndPrev](@inputDate DATETIME2)
 RETURNS DATETIME2
 AS
 BEGIN
-	RETURN dbo.GetWeekEndAt(@inputDate, -1)
+	RETURN [dbo].[GetWeekEndAt](@inputDate, -1)
 END
 GO
